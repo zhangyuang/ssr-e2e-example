@@ -1,0 +1,15 @@
+{
+  "name": "ssr-e2e-example",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "init": "concurrently \" cd react-dynamic-router-test && yarn\"",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "concurrently": "^6.2.1"
+  }
+}
