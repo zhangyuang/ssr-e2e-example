@@ -45,8 +45,7 @@ export class Index {
       this.ctx.apiDeatilservice = this.apiDeatilservice
       const stream = await render<Readable>(this.ctx, {
         stream: true,
-        // @ts-expect-error
-        BASE_NAME: '/zh'
+        prefix: '/zh'
       })
       this.ctx.body = stream
     } catch (error) {
@@ -62,8 +61,7 @@ export class Index {
       this.ctx.apiDeatilservice = this.apiDeatilservice
       const stream = await render<Readable>(this.ctx, {
         stream: true,
-        // @ts-expect-error
-        BASE_NAME: '/en'
+        prefix: '/en'
       })
       this.ctx.body = stream
     } catch (error) {
