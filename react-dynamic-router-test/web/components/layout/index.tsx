@@ -22,7 +22,7 @@ const Layout = (props: LayoutProps) => {
         <div id="app"><App {...props} /></div>
         { injectState }
         <script dangerouslySetInnerHTML={{
-          __html: `window.Prefix="${props.ctx?.request.path}"`
+          __html: `window.prefix="${props.ctx?.request.path}"`
         }}></script>
         { injectScript }
       </body>
