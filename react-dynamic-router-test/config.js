@@ -1,3 +1,8 @@
 module.exports = {
-    publicPath: '/foo'
+  publicPath: '/foo',
+  define: {
+    base: {
+      foo: 'bar'
+    }
+  }
 }
