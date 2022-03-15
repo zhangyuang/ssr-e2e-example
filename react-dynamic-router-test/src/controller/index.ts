@@ -23,7 +23,7 @@ export class Index {
 
   @Get('/')
   @Get('/detail/:id')
-  @Get('/:user')
+  @Get('/user')
   @Get('/login')
   async handler (): Promise<void> {
     try {
@@ -38,6 +38,7 @@ export class Index {
       this.ctx.body = error
     }
   }
+
   @Get('/zh')
   async handlerZh (): Promise<void> {
     try {
