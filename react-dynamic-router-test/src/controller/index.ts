@@ -1,10 +1,10 @@
 import { Readable } from 'stream'
 import { Controller, Get, Provide, Inject } from '@midwayjs/decorator'
-import { Context } from 'egg'
+import { Context } from '@midwayjs/koa'
 import { render } from 'ssr-core-react'
 import { IApiService, IApiDetailService } from '../interface'
 
-interface IEggContext extends Context {
+interface IKoaContext extends Context {
   apiService: IApiService
   apiDeatilservice: IApiDetailService
 }
@@ -13,7 +13,7 @@ interface IEggContext extends Context {
 @Controller('/')
 export class Index {
   @Inject()
-  ctx: IEggContext
+  ctx: IKoaContext
 
   @Inject('ApiService')
   apiService: IApiService
@@ -23,46 +23,12 @@ export class Index {
 
   @Get('/')
   @Get('/detail/:id')
-  @Get('/user')
-  @Get('/login')
   async handler (): Promise<void> {
     try {
       this.ctx.apiService = this.apiService
       this.ctx.apiDeatilservice = this.apiDeatilservice
       const stream = await render<Readable>(this.ctx, {
         stream: true
-      })
-      this.ctx.body = stream
-    } catch (error) {
-      console.log(error)
-      this.ctx.body = error
-    }
-  }
-
-  @Get('/zh')
-  async handlerZh (): Promise<void> {
-    try {
-      this.ctx.apiService = this.apiService
-      this.ctx.apiDeatilservice = this.apiDeatilservice
-      const stream = await render<Readable>(this.ctx, {
-        stream: true,
-        prefix: '/zh'
-      })
-      this.ctx.body = stream
-    } catch (error) {
-      console.log(error)
-      this.ctx.body = error
-    }
-  }
-
-  @Get('/en')
-  async handlerEn (): Promise<void> {
-    try {
-      this.ctx.apiService = this.apiService
-      this.ctx.apiDeatilservice = this.apiDeatilservice
-      const stream = await render<Readable>(this.ctx, {
-        stream: true,
-        prefix: '/en'
       })
       this.ctx.body = stream
     } catch (error) {
