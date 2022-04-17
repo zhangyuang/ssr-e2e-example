@@ -23,6 +23,8 @@ export class Index {
 
   @Get('/')
   @Get('/detail/:id')
+  @Get('/login')
+  @Get('/user')
   async handler (): Promise<void> {
     try {
       this.ctx.apiService = this.apiService
