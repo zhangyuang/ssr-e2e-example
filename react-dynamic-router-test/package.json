@@ -12,7 +12,7 @@
     "react-dom": "^17.0.0",
     "react-router-dom": "^5.1.2",
     "ssr-core": "^6.0.0",
-    "ssr-server-utils": "^6.0.0",
+    "ssr-common-utils": "^6.0.0",
     "swiper": "6.7.5",
     "egg-mock": "^3.2.0",
     "midway-schedule": "^2.0.0"
